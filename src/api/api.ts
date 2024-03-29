@@ -54,4 +54,19 @@ export class WordPressAPI {
     const response = await WordPressAPI.request("posts/slug:" + slug, {});
     return response;
   }
+
+  /** GET posts by category.
+   * @param {string} categorySlug - The slug of the category to fetch posts from
+   */
+  static async getPostsByCategory(categorySlug: string): Promise<any> {
+    const response = await WordPressAPI.request("posts", { category: categorySlug });
+    return response;
+  }
+
+  /** GET all categories
+   */
+  static async getCategories(): Promise<any> {
+    const response = await WordPressAPI.request("categories", {});
+    return response;
+  }
 }
