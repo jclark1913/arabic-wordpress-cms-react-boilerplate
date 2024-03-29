@@ -4,7 +4,7 @@
 
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Noto Nashk Arabic", serif, "Tajawal", sans-serif, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -27,4 +27,27 @@
   --site-background: 255, 255, 255, 255;
   --primary-text: 0, 0, 0, 255;
   --normal-border: 51, 53, 63;
+}
+
+/**
+ * Base styles for basic elements. Since we are using WordPress to update the
+ * html content in our react components we can directly add specific styles, so
+ * these add a baseline styling.
+ */
+@layer base {
+  h1 {
+    @apply text-4xl font-bold;
+  }
+  strong {
+    @apply font-bold !important;
+  }
+  p {
+    @apply py-2;
+  }
+  ul{
+    @apply list-disc list-inside py-4;
+  }
+  li{
+    @apply py-1;
+  }
 }
