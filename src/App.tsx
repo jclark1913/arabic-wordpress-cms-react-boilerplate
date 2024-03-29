@@ -1,5 +1,6 @@
-import NavBar from "./NavBar";
+import NavBar from "./components/NavBar";
 import { ThemeProvider } from "./ThemeContext";
+import RoutesList from "./routes/RoutesList";
 
 function App() {
   return (
@@ -7,7 +8,9 @@ function App() {
       <ThemeProvider>
         <main className="flex min-h-screen flex-col bg-sitebackground">
           <NavBar />
-          <p>hi</p>
+          <div className="container mx-auto">
+            <RoutesList />
+          </div>
         </main>
       </ThemeProvider>
     </>
