@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       <ThemeProvider>
-        <main className="flex min-h-screen flex-col bg-sitebackground">
+        <main className="flex min-h-screen flex-col bg-sitebackground text-primarytext">
           <NavBar />
           <div className="container mx-auto">
             <RoutesList />
