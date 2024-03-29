@@ -11,7 +11,7 @@ const NavBar: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <nav className="flex border-b lg:py-5 py-2 text-xl lg:px-10 px-5 flex-wrap text-primarytext border-normalborder">
+    <nav className="flex border-b lg:py-5 py-2 text-2xl lg:px-10 px-5 flex-wrap text-primarytext border-normalborder">
       <div className="flex container flex-wrap items-center justify-between mx-auto">
         <Link to="/">{SITE_TITLE}</Link>
         <div className="flex gap-5">

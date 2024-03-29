@@ -7,7 +7,7 @@ interface MenuOverlayProps {
 
 const MenuOverlay: React.FC<MenuOverlayProps> = ({ navLinks }) => {
   return (
-    <ul className="flex flex-col py-4 items-center">
+    <ul className="flex flex-col py-4 items-center list-none">
       {navLinks.map((link, index) => (
         <li key={index}>
           <Link

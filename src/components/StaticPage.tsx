@@ -42,12 +42,12 @@ const StaticPage: React.FC<StaticPageProps> = ({ slug }) => {
               className="mb-5"
             />
           ) : null}
-          <h1 className="text-3xl font-bold text-center mb-4">
+          <h1 className="text-3xl sm:text-5xl font-bold text-center mb-4">
             {staticPageContent.title}
           </h1>
           <div
             dangerouslySetInnerHTML={{ __html: staticPageContent.content }}
-            className="text-lg sm:text-xl"
+            className="text-md sm:text-2xl"
           ></div>{" "}
         </>
       ) : null}
