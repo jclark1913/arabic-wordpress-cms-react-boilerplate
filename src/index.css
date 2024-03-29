@@ -4,7 +4,6 @@
 
 
 :root {
-  font-family: "Noto Nashk Arabic", serif, "Tajawal", sans-serif, Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -35,11 +34,14 @@
  * these add a baseline styling.
  */
 @layer base {
+  html{
+    font-family: "Noto Naskh Arabic", serif, system-ui, sans-serif;
+  }
   h1 {
-    @apply text-4xl font-bold;
+    @apply text-4xl font-extrabold;
   }
   strong {
-    @apply font-bold !important;
+    @apply font-extrabold !important;
   }
   p {
     @apply py-2;

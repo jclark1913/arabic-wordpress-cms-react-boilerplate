@@ -6,7 +6,10 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
+      fontFamily: {
+        "sans": ['"Noto Nashk Arabic"', 'serif'],
+      },
+        colors: {
         sitebackground: "rgba(var(--site-background))",
         primarytext: "rgba(var(--primary-text))",
         secondarytext: "rgba(var(--secondary-text))",
