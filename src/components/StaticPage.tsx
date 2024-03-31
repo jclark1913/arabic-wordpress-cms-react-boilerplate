@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
 import { WordPressAPI } from "../api/api";
+import { useParams } from "react-router-dom";
 import DOMPurify from "dompurify";
 
 interface StaticPageProps {
-  slug: string;
+  slug: string | null;
 }
 
 interface StaticPageContent {
@@ -16,11 +17,15 @@ const StaticPage: React.FC<StaticPageProps> = ({ slug }) => {
   const [staticPageContent, setStaticPageContent] =
     useState<StaticPageContent | null>(null);
 
+  const { slug: urlSlug } = useParams<{ slug?: string }>();
+
   /** */
   useEffect(() => {
     const getStaticPageContentOnMount = async () => {
       setStaticPageContent(null);
-      const response = await WordPressAPI.getPostBySlug(slug);
+      const currSlug = slug || urlSlug || "";
+      console.log("currSlug: ", currSlug)
+      const response = await WordPressAPI.getPostBySlug(currSlug);
       const sanitizedContent = DOMPurify.sanitize(response.content);
       setStaticPageContent({
         title: response.title,
