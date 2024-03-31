@@ -3,7 +3,7 @@ import { WordPressAPI } from "../api/api";
 import { PostInterface } from "./Post";
 import {
   ChevronDoubleLeftIcon,
-  ChevronDoubleUpIcon,
+  ChevronDoubleDownIcon,
 } from "@heroicons/react/24/solid";
 
 export interface CategoryInterface {
@@ -32,6 +32,7 @@ const Category: React.FC<CategoryProps> = ({ category }) => {
         modified: post.modified,
         shortURL: post.short_URL,
         tags: Object.keys(post.tags),
+        slug: post.slug,
       }));
       setPosts(posts);
     };
@@ -39,27 +40,28 @@ const Category: React.FC<CategoryProps> = ({ category }) => {
   }, []);
 
   return (
-    <div>
-      <div className="flex flex-row gap-3 items-center">
+    <div className="mr-10 sm:mr-0">
+      <div
+        className="flex flex-row gap-3 items-center hover:cursor-pointer hover:underline"
+        onClick={() => setIsExpanded(!isExpanded)}
+      >
         {isExpanded ? (
-          <ChevronDoubleUpIcon
-            className="h-5 w-5 transform rotate-180"
-            onClick={() => setIsExpanded(!isExpanded)}
-          />
+          <ChevronDoubleDownIcon className="h-5 w-5" />
         ) : (
-          <ChevronDoubleLeftIcon
-            className="h-5 w-5"
-            onClick={() => setIsExpanded(!isExpanded)}
-          />
+          <ChevronDoubleLeftIcon className="h-5 w-5" />
         )}
-        <h1 className="text-2xl">{category.name} ({posts?.length})</h1>
+        <h1 className="text-2xl">
+          {category.name} ({posts?.length})
+        </h1>
       </div>
       <div className="flex flex-col">
         {isExpanded ? (
           <>
             {posts?.map((post, index) => (
               <div key={index} className="flex flex-row gap-3 items-center">
-                <h2>{post.title}</h2>
+                <a href={`/posts/${post.slug}`} className="text-xl">
+                  {post.title}
+                </a>
               </div>
             ))}
           </>
