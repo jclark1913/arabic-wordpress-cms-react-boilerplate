@@ -18,7 +18,7 @@ const StaticPage: React.FC<StaticPageProps> = ({ slug }) => {
   const [staticPageContent, setStaticPageContent] =
     useState<StaticPageContent | null>(null);
 
-  const [hideMetaData, setHideMetaData] = useState<boolean>(false);
+  // const [hideMetaData, setHideMetaData] = useState<boolean>(false);
 
   const { slug: urlSlug } = useParams<{ slug?: string }>();
 
@@ -26,7 +26,7 @@ const StaticPage: React.FC<StaticPageProps> = ({ slug }) => {
   useEffect(() => {
     const getStaticPageContentOnMount = async () => {
       setStaticPageContent(null);
-      slug === null ? setHideMetaData(false) : setHideMetaData(true);
+      // slug === null ? setHideMetaData(false) : setHideMetaData(true);
       const currSlug = slug || urlSlug || "";
       console.log("currSlug: ", currSlug);
       const response = await WordPressAPI.getPostBySlug(currSlug);
