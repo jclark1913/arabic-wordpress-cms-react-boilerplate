@@ -13,7 +13,7 @@ const RoutesList: React.FC = () => {
         <Route path="/about" element={<StaticPage slug="about" />} />
         <Route path="/contact" element={<StaticPage slug="contact" />} />
         <Route path="/table-of-contents" element={<TableOfContents />} />
-        <Route path="/posts/:slug" element={<StaticPage slug={null} />} />
+        <Route path="/posts/:slug" element={<Post />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>
