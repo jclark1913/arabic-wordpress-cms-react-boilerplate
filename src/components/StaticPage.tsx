@@ -5,6 +5,7 @@ import DOMPurify from "dompurify";
 
 interface StaticPageProps {
   slug: string | null;
+  hideMetaData?: boolean;
 }
 
 interface StaticPageContent {
@@ -17,14 +18,17 @@ const StaticPage: React.FC<StaticPageProps> = ({ slug }) => {
   const [staticPageContent, setStaticPageContent] =
     useState<StaticPageContent | null>(null);
 
+  const [hideMetaData, setHideMetaData] = useState<boolean>(false);
+
   const { slug: urlSlug } = useParams<{ slug?: string }>();
 
   /** */
   useEffect(() => {
     const getStaticPageContentOnMount = async () => {
       setStaticPageContent(null);
+      slug === null ? setHideMetaData(false) : setHideMetaData(true);
       const currSlug = slug || urlSlug || "";
-      console.log("currSlug: ", currSlug)
+      console.log("currSlug: ", currSlug);
       const response = await WordPressAPI.getPostBySlug(currSlug);
       const sanitizedContent = DOMPurify.sanitize(response.content);
       setStaticPageContent({
