@@ -41,7 +41,7 @@ const StaticPage: React.FC<StaticPageProps> = ({ slug }) => {
   }, [slug]);
 
   return (
-    <div className="container mx-auto w-2/3">
+    <div className="container mx-auto sm:w-2/3">
       {staticPageContent ? (
         <>
           {staticPageContent.featuredImageUrl ? (

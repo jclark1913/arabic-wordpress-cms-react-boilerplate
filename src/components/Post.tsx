@@ -66,7 +66,7 @@ const Post: React.FC = () => {
   }
 
   return (
-    <div className="container mx-auto w-2/3">
+    <div className="container mx-auto sm:w-2/3">
       {post ? (
         <>
           {post.featuredImageUrl ? (
@@ -76,7 +76,7 @@ const Post: React.FC = () => {
               className="mb-5"
             />
           ) : null}
-          <h1 className="text-3xl sm:text-5xl font-bold text-center mb-4">
+          <h1 className="text-3xl sm:text-5xl font-bold mb-4 text-right">
             {post.title}
           </h1>
           <>{formatPublicationData()}</>
